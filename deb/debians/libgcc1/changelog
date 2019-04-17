@@ -1,4 +1,4 @@
-libgcc1-frc2020-armel-cross (1:7.3.0-r0.14-0) stable; urgency=low
+libgcc1-frc2020-armel-cross (1:7.3.0-r0.16-0) stable; urgency=low
 
   * Use upstream instead of building.
 
