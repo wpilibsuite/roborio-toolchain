@@ -15,8 +15,8 @@ Author: Patrick Plenefisch <phplenefisch@wpi.edu>
 +clean:
 +# all and clean targets need to be present for DESTDIR to work...
 +install:
-+	mkdir -p debian/libgcc1-frc2019-armel-cross/${PREFIX}
-+	mkdir -p debian/libgcc-dev-frc2019-armel-cross/${PREFIX}
-+	cp libgcc1/* debian/libgcc1-frc2019-armel-cross/${PREFIX} -r
-+	cp libgcc-dev/* debian/libgcc-dev-frc2019-armel-cross/${PREFIX} -r
++	mkdir -p debian/libgcc1-frc2020-armel-cross/${PREFIX}
++	mkdir -p debian/libgcc-dev-frc2020-armel-cross/${PREFIX}
++	cp libgcc1/* debian/libgcc1-frc2020-armel-cross/${PREFIX} -r
++	cp libgcc-dev/* debian/libgcc-dev-frc2020-armel-cross/${PREFIX} -r
 +

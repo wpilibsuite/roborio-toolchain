@@ -1,0 +1,3 @@
+gcc-7.3-arm-frc2020-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2020-linux-gnueabi-gcc-ar-7.3
+gcc-7.3-arm-frc2020-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2020-linux-gnueabi-gcc-nm-7.3
+gcc-7.3-arm-frc2020-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2020-linux-gnueabi-gcc-ranlib-7.3

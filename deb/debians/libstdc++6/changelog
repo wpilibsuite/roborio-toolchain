@@ -1,4 +1,4 @@
-libstdc++6-frc2019-armel-cross (1:6.3.0-r0.13-0) stable; urgency=low
+libstdc++6-frc2020-armel-cross (1:7.3.0-r0.13-0) stable; urgency=low
 
   * Use upstream instead of building.
 

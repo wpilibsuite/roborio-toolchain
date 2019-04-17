@@ -74,7 +74,7 @@ mv repack/libgcc-dev/out/usr/lib/arm-nilrt-linux-gnueabi repack/libgcc-dev/out/u
 # copy the arm-nilrt headers to arm-frcYEAR
 # (we copy instead of move so gdb can find the originals)
 cp -Rp repack/libc6-dev/out/usr/lib/gcc/arm-nilrt-linux-gnueabi repack/libc6-dev/out/usr/lib/gcc/arm-frc${V_YEAR}-linux-gnueabi
-cp -Rp repack/libstdc++6-dev/out/usr/include/c++/6.3.0/arm-nilrt-linux-gnueabi repack/libstdc++6-dev/out/usr/include/c++/6.3.0/arm-frc${V_YEAR}-linux-gnueabi
+cp -Rp repack/libstdc++6-dev/out/usr/include/c++/7.3.0/arm-nilrt-linux-gnueabi repack/libstdc++6-dev/out/usr/include/c++/7.3.0/arm-frc${V_YEAR}-linux-gnueabi
 
 pushd repack/linux-libc-headers-dev/
 	mv out linux-libc-${Va_LINUX}
@@ -108,6 +108,6 @@ chmod a+x frcmake${V_YEAR}
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/frc-cmake-toolchain > frc${V_YEAR}-cmake-toolchain
 chmod a+x frc${V_YEAR}-cmake-toolchain
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/toolchain.cmake > toolchain.cmake
-sed -e "s/frc/frc${V_YEAR}/g" -e "s/frc2019make/frcmake2019/g" ../tools/frcmake-nix-makefile > Makefile
+sed -e "s/frc/frc${V_YEAR}/g" -e "s/frc2020make/frcmake2020/g" ../tools/frcmake-nix-makefile > Makefile
 popd
 tar cjf frcmake${V_YEAR}-${V_FRCMAKE}.tar.bz2 frcmake${V_YEAR}-${V_FRCMAKE}

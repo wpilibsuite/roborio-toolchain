@@ -14,4 +14,4 @@ docker pull wpilib/toolchain-builder:18.04 \
   && make gcc gdb gcc-defaults frcmake frc-toolchain \
   && dpkg -i *.deb \
   && cp *.deb /artifacts/" \
- && docker build -t wpilib/roborio-toolchain:2019-18.04 -f Dockerfile.packages .
+ && docker build -t wpilib/roborio-toolchain:2020-18.04 -f Dockerfile.packages .

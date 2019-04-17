@@ -15,8 +15,8 @@ Author: Patrick Plenefisch <phplenefisch@wpi.edu>
 +clean:
 +# all and clean targets need to be present for DESTDIR to work...
 +install:
-+	mkdir -p debian/libstdc++6-frc2019-armel-cross/${PREFIX}
-+	mkdir -p debian/libstdc++6-dev-frc2019-armel-cross/${PREFIX}
-+	cp libstdc++6/* debian/libstdc++6-frc2019-armel-cross/${PREFIX} -r
-+	cp libstdc++6-dev/* debian/libstdc++6-dev-frc2019-armel-cross/${PREFIX} -r
++	mkdir -p debian/libstdc++6-frc2020-armel-cross/${PREFIX}
++	mkdir -p debian/libstdc++6-dev-frc2020-armel-cross/${PREFIX}
++	cp libstdc++6/* debian/libstdc++6-frc2020-armel-cross/${PREFIX} -r
++	cp libstdc++6-dev/* debian/libstdc++6-dev-frc2020-armel-cross/${PREFIX} -r
 +

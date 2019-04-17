@@ -5,9 +5,9 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ 
-	
+	dh $@
+
 override_dh_auto_build:
-	xsltproc --nonet --param make.year.ranges 1 --param make.single.year.ranges 1 --param man.charmap.use.subset 0 -o debian/ /usr/share/xml/docbook/stylesheet/docbook-xsl/manpages/docbook.xsl debian/frcmake2019.1.xml debian/frc2019-cmake-toolchain.1.xml
+	xsltproc --nonet --param make.year.ranges 1 --param make.single.year.ranges 1 --param man.charmap.use.subset 0 -o debian/ /usr/share/xml/docbook/stylesheet/docbook-xsl/manpages/docbook.xsl debian/frcmake2020.1.xml debian/frc2020-cmake-toolchain.1.xml
 	dh_auto_build $@
 

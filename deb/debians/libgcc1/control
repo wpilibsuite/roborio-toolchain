@@ -1,11 +1,11 @@
-Source: libgcc1-frc2019-armel-cross
+Source: libgcc1-frc2020-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
-Package: libgcc1-frc2019-armel-cross
+Package: libgcc1-frc2020-armel-cross
 Architecture: all
 Section: devel
 Priority: extra
@@ -18,11 +18,11 @@ Description: GCC support library
  This package contains files for armel architecture, for use in cross-compile
  environment.
 
-Package: libgcc-dev-frc2019-armel-cross
+Package: libgcc-dev-frc2020-armel-cross
 Architecture: all
 Section: devel
 Priority: optional
-Recommends: libc6-dev-frc2019-armel-cross (>= 2.24)
+Recommends: libc6-dev-frc2020-armel-cross (>= 2.24)
 Description: GCC support library (development files)
  This package contains the headers and static library files necessary for
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
