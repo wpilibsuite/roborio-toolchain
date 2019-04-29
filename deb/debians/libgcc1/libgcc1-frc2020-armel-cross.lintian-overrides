@@ -1,3 +1,0 @@
-libgcc1-frc2020-armel-cross: arch-independent-package-contains-binary-or-object
-libgcc1-frc2020-armel-cross: missing-depends-line
-libgcc1-frc2020-armel-cross: non-standard-dir-in-usr usr/arm-frc2020-linux-gnueabi/
