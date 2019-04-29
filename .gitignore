@@ -11,3 +11,4 @@ mac/makes/pkg/build/
 repack/
 frcmake-*/
 deb/frcmake_*
+.vscode/
