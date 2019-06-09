@@ -13,7 +13,7 @@ alias ld=/usr/local/bin/gcc-6
 alias cc=/usr/local/bin/gcc-6
 
 
-all: clean sysroot binutils gcc gdb tree pkg tarpkg
+all: clean sysroot binutils gcc gdb tree tarpkg
 
 
 sysroot:
@@ -40,13 +40,6 @@ gcc:
 tree:
 	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
 
-pkg:
-	rm -rf makes/pkg/build/
-	freeze makes/pkg/FRC\ ARM\ Toolchain.packproj
-	ls -la makes/pkg/build
-	cd makes/pkg/build && tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC)-Installer.pkg.tar.gz FRC\ $(V_YEAR)\ ARM\ Toolchain.pkg
-	cp makes/pkg/build/FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC)-Installer.pkg.tar.gz .
-
 tarpkg:
 	mkdir -p frc$(V_YEAR)
 	mkdir -p frc$(V_YEAR)/roborio
@@ -54,5 +47,5 @@ tarpkg:
 	tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC).tar.gz frc$(V_YEAR)
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install gdb* makes/pkg/build *.pkg.tar.gz *-Toolchain-*.tar.gz
+	rm -rf binutils* roborio* sysroot* gcc* tree-install gdb* makes/pkg/build *-Toolchain-*.tar.gz
 
