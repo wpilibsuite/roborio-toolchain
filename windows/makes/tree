@@ -19,10 +19,7 @@ popd
 rm -rf lib/xtables
 
 pushd bin
-pwd
-cp ../../../../../../../tools/make.exe frc${V_YEAR}-make.exe
 cp ../../../../../../../../tools/make.exe frc${V_YEAR}-make.exe
-cp ../../../../../../tools/make.exe frc${V_YEAR}-make.exe
 popd
 
 du -hs .
