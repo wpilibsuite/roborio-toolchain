@@ -62,7 +62,7 @@ cd gcc-build
     --disable-libmudflap \
     --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
     --libdir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/lib \
-    --with-gxx-include-dir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/7.3.0 \
+    --with-gxx-include-dir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/7.4.0 \
     --with-system-zlib \
     || exit $?
 make -j3 all-gcc || exit $?
