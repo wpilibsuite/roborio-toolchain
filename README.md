@@ -1,4 +1,4 @@
-# roborio-toolchain
+# roborio-toolchain - an amazing project
 
 _Build setup for building the RoboRio Toolchain_
 
