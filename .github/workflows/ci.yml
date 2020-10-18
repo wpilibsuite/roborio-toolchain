@@ -39,6 +39,28 @@ jobs:
           name: macOS
           path: mac/*Toolchain*.tar.gz
 
+  sign-macos:
+    needs: build-macos
+    name: "Codesign - macOS"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: macOS
+      - run: unzip macOS.zip
+      - name: Import Developer ID Certificate
+        uses: devbotsxyz/xcode-import-certificate@v1
+        with:
+          certificate-data: ${{ secrets.CERTIFICATE_DATA }}
+          certificate-passphrase: ${{ secrets.CERTIFICATE_PASSWORD }}
+          keychain-password: ${{ secrets.KEYCHAIN_PASSWORD }}
+      - run: ./codesign.sh ${{ secrets.DEVELOPER_ID }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: macOS
+          path: mac/*Toolchain*.tar.gz
+
   release:
     needs: [build-linux, build-windows, build-macos]
     runs-on: ubuntu-latest
