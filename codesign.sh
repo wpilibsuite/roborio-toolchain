@@ -8,6 +8,7 @@ sign_directory()
     done
 }
 
+cd mac
 tar -pxvzf FRC-2020-Mac-Toolchain-7.3.0.tar.gz
 sign_directory "frc2020/roborio/bin" $1
 sign_directory "frc2020/roborio/arm-frc2020-linux-gnueabi/bin" $1
