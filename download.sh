@@ -2,13 +2,20 @@
 source versions.sh
 source tools/verify.sh
 
-gpg --keyserver keyserver.ubuntu.com --recv-keys 3AB00996FC26A641 # gcc
-gpg --keyserver keyserver.ubuntu.com --recv-keys C3126D3B4AE55E93 # binutils
-gpg --keyserver keyserver.ubuntu.com --recv-keys 980C197698C3739D # mpfr
-gpg --keyserver keyserver.ubuntu.com --recv-keys F7D5C9BF765C61E3 # mpc
-gpg --keyserver keyserver.ubuntu.com --recv-keys F3599FF828C67298 # gmp
-gpg --keyserver keyserver.ubuntu.com --recv-keys 92EDB04BFF325CF3 # gdb
-gpg --keyserver keyserver.ubuntu.com --recv-keys B00BC66A401A1600 # expat
+PUB_KEYS=(
+    3AB00996FC26A641 # gcc
+    C3126D3B4AE55E93 # binutils
+    980C197698C3739D # mpfr
+    F7D5C9BF765C61E3 # mpc
+    F3599FF828C67298 # gmp
+    92EDB04BFF325CF3 # gdb
+    B00BC66A401A1600 # expat
+)
+
+for KEY in "${PUB_KEYS[@]}"
+do
+    gpg --keyserver keyserver.ubuntu.com --recv-keys "$KEY"
+done
 
 signed sig https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.gz
 signed sig https://ftp.gnu.org/gnu/binutils/binutils-${V_BIN}.tar.bz2
