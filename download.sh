@@ -18,7 +18,7 @@ do
     gpg --list-key "0x$KEY" > /dev/null 2>&1 && continue
 
     # Enfoce https fetch
-    curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${KEY}" | \
+    wget -nv -O - "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${KEY}" | \
         gpg --import || { echo "Could not import 0x${KEY} into gpg"; exit 1; }
 done
 
