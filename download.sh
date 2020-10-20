@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/zsh
 source versions.sh
 source tools/verify.sh
 

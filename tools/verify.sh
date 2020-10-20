@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/zsh
 
 function signed() {
     BASE_FILE=${2/*\//}
