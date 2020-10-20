@@ -3,7 +3,7 @@
 function signed() {
     BASE_FILE=${2/*\//}
     wget -nc -nv "$2" || { echo "Could Not Download $BASE_FILE"; exit 1; }
-    wget -nc -nv "$2.$1" || return 0 # Signuature missing, skip
+    wget -nc -nv "$2.$1" || return 0 # Signature missing, skip
     gpg --verify "$BASE_FILE.$1" || { echo "Cannot Verify $BASE_FILE Download"; exit 1; }
     rm "$BASE_FILE.$1" || { echo "Could Not Cleanup Download for $BASE_FILE"; exit 1; }
 }
