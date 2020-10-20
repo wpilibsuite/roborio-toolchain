@@ -14,7 +14,9 @@ PUB_KEYS=(
 
 for KEY in "${PUB_KEYS[@]}"
 do
-    gpg --keyserver keyserver.ubuntu.com --recv-keys "$KEY"
+    curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${KEY}" | \
+        gpg --import
+    # gpg --keyserver keyserver.ubuntu.com --recv-keys "$KEY"
 done
 
 signed sig https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.gz
