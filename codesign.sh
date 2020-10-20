@@ -1,3 +1,5 @@
+#!/bin/sh
+
 sign_directory()
 {
     find $1 | while read fname; do
