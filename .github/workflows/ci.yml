@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: ./build-mac.sh
       - name: Import Developer ID Certificate
-        uses: devbotsxyz/xcode-import-certificate@v1
+        uses: wpilibsuite/import-signing-certificate@v1
         with:
           certificate-data: ${{ secrets.APPLE_CERTIFICATE_DATA }}
           certificate-passphrase: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
