@@ -34,6 +34,19 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         run: ./build-mac.sh
+      - name: Import Developer ID Certificate
+        uses: wpilibsuite/import-signing-certificate@v1
+        with:
+          certificate-data: ${{ secrets.APPLE_CERTIFICATE_DATA }}
+          certificate-passphrase: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          keychain-password: ${{ secrets.APPLE_KEYCHAIN_PASSWORD }}
+        if: |
+          github.repository_owner == 'wpilibsuite' &&
+          (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
+      - run: ./codesign.sh ${{ secrets.APPLE_DEVELOPER_ID }}
+        if: |
+          github.repository_owner == 'wpilibsuite' &&
+          (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
       - uses: actions/upload-artifact@v2
         with:
           name: macOS
