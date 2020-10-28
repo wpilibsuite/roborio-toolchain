@@ -1,4 +1,5 @@
 #!/bin/bash
+source versions.sh
 
 sign_directory()
 {
@@ -11,9 +12,9 @@ sign_directory()
 }
 
 cd mac
-tar -pxvzf FRC-2020-Mac-Toolchain-7.3.0.tar.gz
-sign_directory "frc2020/roborio/bin" $1
-sign_directory "frc2020/roborio/arm-frc2020-linux-gnueabi/bin" $1
-sign_directory "frc2020/roborio/libexec/gcc/arm-frc2020-linux-gnueabi/7.3.0" $1
-tar -pcvzf FRC-2020-Mac-Toolchain-7.3.0.tar.gz frc2020/
-rm -rf frc2020/
+tar -pxvzf FRC-${V_YEAR}-Mac-Toolchain-${V_GCC}.tar.gz
+sign_directory "frc${V_YEAR}/roborio/bin" $1
+sign_directory "frc${V_YEAR}/roborio/arm-frc${V_YEAR}-linux-gnueabi/bin" $1
+sign_directory "frc${V_YEAR}/roborio/libexec/gcc/arm-frc${V_YEAR}-linux-gnueabi/${V_GCC}" $1
+tar -pcvzf FRC-${V_YEAR}-Mac-Toolchain-${V_GCC}.tar.gz frc${V_YEAR}/
+rm -rf frc${V_YEAR}/

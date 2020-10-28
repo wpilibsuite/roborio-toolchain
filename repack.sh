@@ -108,6 +108,6 @@ chmod a+x frcmake${V_YEAR}
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/frc-cmake-toolchain > frc${V_YEAR}-cmake-toolchain
 chmod a+x frc${V_YEAR}-cmake-toolchain
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/toolchain.cmake > toolchain.cmake
-sed -e "s/frc/frc${V_YEAR}/g" -e "s/frc2020make/frcmake2020/g" ../tools/frcmake-nix-makefile > Makefile
+sed -e "s/frc/frc${V_YEAR}/g" -e "s/frc${V_YEAR}make/frcmake${V_YEAR}/g" ../tools/frcmake-nix-makefile > Makefile
 popd
 tar cjf frcmake${V_YEAR}-${V_FRCMAKE}.tar.bz2 frcmake${V_YEAR}-${V_FRCMAKE}
