@@ -42,11 +42,11 @@ jobs:
           keychain-password: ${{ secrets.APPLE_KEYCHAIN_PASSWORD }}
         if: |
           github.repository_owner == 'wpilibsuite' &&
-          (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
+          (github.ref == 'refs/heads/2021' || startsWith(github.ref, 'refs/tags/v'))
       - run: ./codesign.sh ${{ secrets.APPLE_DEVELOPER_ID }}
         if: |
           github.repository_owner == 'wpilibsuite' &&
-          (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
+          (github.ref == 'refs/heads/2021' || startsWith(github.ref, 'refs/tags/v'))
       - uses: actions/upload-artifact@v2
         with:
           name: macOS
