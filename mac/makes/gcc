@@ -65,8 +65,8 @@ cd gcc-build
     --with-gxx-include-dir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/7.3.0 \
     --with-system-zlib \
     || exit $?
-make -j3 all-gcc all-target-libgfortran || exit $?
-DESTDIR=$PWD/../gcc-install make install-gcc install-target-libgfortran || exit $?
+make -j3 all-gcc all-target-libsanitizer all-target-libgfortran || exit $?
+DESTDIR=$PWD/../gcc-install make install-gcc install-target-libsanitizer install-target-libgfortran || exit $?
 
 cd ../gcc-install
 
