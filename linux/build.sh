@@ -2,6 +2,7 @@
 
 export PATH=${PWD}/gcc-install/usr/bin:${PWD}/binutils-install/usr/bin:${PATH}
 
+make test-cc
 make sysroot
 sudo cp sysroot-install/usr/local/* /usr/local/ -r
 make binutils
