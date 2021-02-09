@@ -74,7 +74,7 @@ mv repack/libgcc-dev/out/usr/lib/arm-nilrt-linux-gnueabi repack/libgcc-dev/out/u
 # copy the arm-nilrt headers to arm-frcYEAR
 # (we copy instead of move so gdb can find the originals)
 cp -Rp repack/libc6-dev/out/usr/lib/gcc/arm-nilrt-linux-gnueabi repack/libc6-dev/out/usr/lib/gcc/arm-frc${V_YEAR}-linux-gnueabi
-cp -Rp repack/libstdc++6-dev/out/usr/include/c++/7.3.0/arm-nilrt-linux-gnueabi repack/libstdc++6-dev/out/usr/include/c++/7.3.0/arm-frc${V_YEAR}-linux-gnueabi
+cp -Rp repack/libstdc++6-dev/out/usr/include/c++/${V_GCC}/arm-nilrt-linux-gnueabi repack/libstdc++6-dev/out/usr/include/c++/${V_GCC}/arm-frc${V_YEAR}-linux-gnueabi
 
 pushd repack/linux-libc-headers-dev/
 	mv out linux-libc-${Va_LINUX}
