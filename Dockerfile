@@ -1,6 +1,7 @@
 # Requires docker 17.05 or newer.
 # For installation, see https://docs.docker.com/install/linux/docker-ce/ubuntu/
-FROM ubuntu:18.04
+ARG BASE
+FROM docker.io/ubuntu:${BASE}
 
 RUN apt-get update && apt-get install -y tzdata && apt-get install -y \
     autoconf \
