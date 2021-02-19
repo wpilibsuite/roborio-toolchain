@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mkdir expat-build
+mkdir expat-install
+cd expat-build
+../expat-${Vw_EXPAT}/configure \
+    --host=${FRCHOSTTARGET}
+make
+INSTALL_ROOT=$PWD/../expat-install make install
+cd ../expat-install
+find . -name "*.dll" -exec \
+    "${FRCHOSTTARGET}-strip" \
+        --remove-section=.comment \
+        --remove-section=.note \
+        --strip-unneeded {} \;
+

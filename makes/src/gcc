@@ -1,9 +1,14 @@
 #!/bin/bash
 source ../versions.sh
 
-export CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+if [ "$FRCTARGET" != "Windows" ]; then
+    export _UNIX_CFLAGS="-fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+    export _UNIX_CXXFLAGS="-fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+fi
+
+export CFLAGS="-g -O2 $_UNIX_CFLAGS"
 export CPPFLAGS="-D_FORTIFY_SOURCE=2"
-export CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+export CXXFLAGS="-g -O2 $_UNIX_CXXFLAGS"
 export FFLAGS=-"g -O2"
 export LDFLAGS=""
 
@@ -42,6 +47,7 @@ mkdir gcc-build
 mkdir gcc-install
 cd gcc-build
 ../gcc-${V_GCC}/configure \
+    $([ "$FRCTARGET" != "Mac" ] && echo "--host=${FRCHOSTTARGET}") \
     --enable-threads=posix \
     --target=arm-frc${V_YEAR}-linux-gnueabi \
     --with-cpu=cortex-a9 \
@@ -56,14 +62,14 @@ cd gcc-build
     --with-cloog \
     --disable-multilib \
     --disable-multiarch \
-    --prefix=/usr/local \
-    --with-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
+    --prefix="$FRCPREFIX" \
+    --with-sysroot="$FRCPREFIX/arm-frc${V_YEAR}-linux-gnueabi" \
     --enable-poison-system-directories \
     --disable-libmudflap \
-    --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
-    --libdir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/lib \
-    --with-gxx-include-dir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/7.3.0 \
-    --with-system-zlib \
+    --with-build-sysroot="/usr/local/arm-frc${V_YEAR}-linux-gnueabi" \
+    --libdir="$FRCPREFIX"/arm-frc${V_YEAR}-linux-gnueabi/usr/lib \
+    --with-gxx-include-dir="$FRCPREFIX"/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/7.3.0 \
+    $([ "$FRCTARGET" != "Windows" ] && echo --with-system-zlib) \
     || exit $?
 make -j3 all-gcc all-target-libgfortran || exit $?
 DESTDIR=$PWD/../gcc-install make install-gcc install-target-libgfortran || exit $?

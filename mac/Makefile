@@ -1,51 +1,23 @@
-include ../versions.sh
+export FRCTARGET ?= Mac
+export FRCHOSTTARGET ?=
+export FRCPREFIX ?= /usr/local
+export M = ${PWD}
 
 export PATH:="${PWD}/gcc-install/usr/bin:${PWD}/binutils-install/usr/bin:${PATH}"
 export CC=/usr/local/bin/gcc-6
 export CXX=/usr/local/bin/g++-6
 export CPP=/usr/local/bin/cpp-6
 export LD=/usr/local/bin/gcc-6
-alias c++=/usr/local/bin/c++-6
-alias g++=/usr/local/bin/g++-6
-alias gcc=/usr/local/bin/gcc-6
-alias cpp=/usr/local/bin/cpp-6
-alias ld=/usr/local/bin/gcc-6
-alias cc=/usr/local/bin/gcc-6
+alias c++=${CPP} # cpp-6
+alias g++=${CXX} # g++-6
+alias cpp=${CPP} # cpp-6
+alias gcc=${CC} # gcc-6
+alias ld=${CC} # gcc-6
+alias cc=${CC} # gcc-6
 
-
-all: clean sysroot binutils gcc gdb tree tarpkg
-
-
-sysroot:
-	rm -rf sysroot-*
-	mkdir sysroot-libc-linux
-	cd sysroot-libc-linux && tar xf ../../libc6-frc$(V_YEAR)-armel-cross_$(Va_LIBC).orig.tar.bz2
-	cd sysroot-libc-linux && tar xf ../../linux-libc-dev-frc$(V_YEAR)-armel-cross_$(Va_LINUX).orig.tar.bz2
-	cd sysroot-libc-linux && tar xf ../../libgcc1-frc$(V_YEAR)-armel-cross_$(Va_LIBGCC).orig.tar.bz2
-	cd sysroot-libc-linux && tar xf ../../libstdc++6-frc$(V_YEAR)-armel-cross_$(Va_LIBSTDCPP).orig.tar.bz2
-	makes/sysroot
-
-binutils:
-	tar xf ../binutils-$(V_BINUTILS).tar.bz2
-	V_YEAR=$(V_YEAR) V_BINUTILS=$(V_BINUTILS) makes/binutils
-
-gdb:
-	tar xf ../gdb-$(V_GDB).tar.gz
-	V_YEAR=$(V_YEAR) V_GDB=$(V_GDB) makes/gdb
-
-gcc:
-	@# gcc does its own extraction
-	makes/gcc
-
-tree:
-	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
-
-tarpkg:
-	mkdir -p frc$(V_YEAR)
-	mkdir -p frc$(V_YEAR)/roborio
-	cp -R tree-install/usr/local/* frc$(V_YEAR)/roborio/
-	tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC).tar.gz frc$(V_YEAR)
+%:
+	${MAKE} -C ../makes $@
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install gdb* makes/pkg/build *-Toolchain-*.tar.gz
-
+	$(MAKE) -C ../makes $@
+	rm -rf makes/pkg/build
