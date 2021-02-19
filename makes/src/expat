@@ -8,5 +8,9 @@ cd expat-build
 make
 INSTALL_ROOT=$PWD/../expat-install make install
 cd ../expat-install
-${FRCHOSTTARGET}-strip --remove-section=.comment --remove-section=.note --strip-unneeded ./**/*.dll
+find . -name "*.dll" -exec \
+    "${FRCHOSTTARGET}-strip" \
+        --remove-section=.comment \
+        --remove-section=.note \
+        --strip-unneeded {} \;
 
