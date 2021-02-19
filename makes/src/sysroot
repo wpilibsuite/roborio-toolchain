@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 source ../versions.sh
 
 mkdir -p sysroot-install/${FRCPREFIX}/arm-frc${V_YEAR}-linux-gnueabi
