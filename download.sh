@@ -9,7 +9,6 @@ PUB_KEYS=(
     F7D5C9BF765C61E3 # mpc
     F3599FF828C67298 # gmp
     92EDB04BFF325CF3 # gdb
-    B00BC66A401A1600 # expat
 )
 
 for KEY in "${PUB_KEYS[@]}"
@@ -29,8 +28,7 @@ signed sig https://ftp.gnu.org/gnu/mpc/mpc-${V_MPC}.tar.gz
 signed sig https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
 
-# Will skip if Vw_EXPAT is 2.2.0 as it is not signed, but 2.2.6 is signed
-signed asc https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}.tar.bz2
+wget -nc -nv https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}.tar.bz2
 
 # signed asc https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages
 # Cannot find public key to verify Packages.asc in directory, use https instead
