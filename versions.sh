@@ -16,5 +16,6 @@ Va_LINUX=4.15.7-r0.13
 Va_LIBGCC=7.3.0-r0.16
 Va_LIBSTDCPP=7.3.0-r0.16
 Va_GCC=7.3.0-r0.13
-Vw_EXPAT=2.4.1
+# Update download.sh
+Vw_EXPAT=2.2.0
 V_FRCMAKE=1.1
