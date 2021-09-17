@@ -32,32 +32,32 @@ wget -nc -nv https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expa
 mv expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2 \
     expat-${Vw_EXPAT}.tar.bz2
 
-# signed asc https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages
+# signed asc https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/cortexa9-vfpv3/Packages
 # Cannot find public key to verify Packages.asc in directory, use https instead
-wget -nc -nv https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages || exit 1
+wget -nc -nv https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/Packages || exit 1
 
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/gcc_${Va_GCC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgcc1_${Va_LIBGCC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgcc-s-dbg_${Va_LIBGCC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgcc-s-dev_${Va_LIBGCC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libstdc++6_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libstdc++-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libatomic1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libatomic-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgomp1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgomp-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libitm1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libitm-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libssp0_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libssp-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/gcc-runtime-dbg_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libc6_${Va_LIBC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libc6-dbg_${Va_LIBC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libc6-dev_${Va_LIBC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libcidn1_${Va_LIBC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libc6-thread-db_${Va_LIBC}_cortexa9-vfpv3.ipk
-signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libc6-extra-nss_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/gcc_${Va_GCC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgcc1_${Va_LIBGCC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgcc-s-dbg_${Va_LIBGCC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgcc-s-dev_${Va_LIBGCC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libstdc++6_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libstdc++-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libatomic1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libatomic-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgomp1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgomp-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libitm1_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libitm-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libssp0_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libssp-dev_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/gcc-runtime-dbg_${Va_LIBSTDCPP}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libc6_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libc6-dbg_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libc6-dev_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libcidn1_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libc6-thread-db_${Va_LIBC}_cortexa9-vfpv3.ipk
+signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libc6-extra-nss_${Va_LIBC}_cortexa9-vfpv3.ipk
 
 rm Packages
 
