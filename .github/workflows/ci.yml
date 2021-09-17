@@ -24,7 +24,7 @@ jobs:
         run: ./build-win32.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows
+          name: Windows32
           path: FRC-*-Windows*.zip
   build-windows-x64:
     name: "Build - Windows x64"
@@ -35,7 +35,7 @@ jobs:
         run: ./build-win64.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows
+          name: Windows64
           path: FRC-*-Windows_x64*.zip
   build-macos:
     name: "Build - macOS"
