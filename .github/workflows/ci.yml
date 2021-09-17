@@ -21,12 +21,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        run: ./build-windows.sh
+        run: ./build-win32.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows
+          name: Windows32
           path: FRC-*-Windows*.zip
-
+  build-windows-x64:
+    name: "Build - Windows x64"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: ./build-win64.sh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Windows64
+          path: FRC-*-Windows_x64*.zip
   build-macos:
     name: "Build - macOS"
     runs-on: macos-latest
@@ -53,7 +63,7 @@ jobs:
           path: mac/*Toolchain*.tar.gz
 
   release:
-    needs: [build-linux, build-windows, build-macos]
+    needs: [build-linux, build-windows, build-windows-x64, build-macos]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
