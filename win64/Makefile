@@ -33,6 +33,7 @@ tree:
 	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
 
 zip:
+	rm -rf tree-install/c/Users/Public/frc$(V_YEAR)/roborio/arm-frc$(V_YEAR)-linux-gnueabi/usr/src
 	cd tree-install/c/Users/Public && zip -r ../../../../FRC-$(V_YEAR)-Windows64-Toolchain-$(V_GCC).zip .
 
 clean:
