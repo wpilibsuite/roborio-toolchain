@@ -33,7 +33,7 @@ tree:
 	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
 
 zip:
-	cd tree-install/c/Users/Public && zip -r ../../../../FRC-$(V_YEAR)-Windows_x64-Toolchain-$(V_GCC).zip .
+	cd tree-install/c/Users/Public && zip -r ../../../../FRC-$(V_YEAR)-Windows64-Toolchain-$(V_GCC).zip .
 
 clean:
 	rm -rf binutils* roborio* sysroot* gcc* tree-install expat* gdb* *-Toolchain-*.zip
