@@ -17,7 +17,7 @@ do
     gpg --list-key "0x$KEY" > /dev/null 2>&1 && continue
 
     # Enfoce https fetch
-    wget -nv -O - "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${KEY}" | \
+    wget -nv -O - --no-check-certificate "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${KEY}" | \
         gpg --import || { echo "Could not import 0x${KEY} into gpg"; exit 1; }
 done
 
@@ -28,13 +28,13 @@ signed sig https://ftp.gnu.org/gnu/mpc/mpc-${V_MPC}.tar.gz
 signed sig https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
 
-wget -nc -nv https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2
+wget -nc -nv --no-check-certificate https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2
 mv expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2 \
     expat-${Vw_EXPAT}.tar.bz2
 
 # signed asc https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/cortexa9-vfpv3/Packages
 # Cannot find public key to verify Packages.asc in directory, use https instead
-wget -nc -nv https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/Packages || exit 1
+wget -nc -nv --no-check-certificate https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/Packages || exit 1
 
 signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/gcc_${Va_GCC}_cortexa9-vfpv3.ipk
 signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/libgcc1_${Va_LIBGCC}_cortexa9-vfpv3.ipk
@@ -61,6 +61,6 @@ signed-ni http://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv
 
 rm Packages
 
-wget -nc -nv \
+wget -nc -nv --no-check-certificate \
     http://www.bastoul.net/cloog/pages/download/cloog-${V_CLOOG}.tar.gz \
-    http://isl.gforge.inria.fr/isl-${V_ISL}.tar.bz2
+    https://gcc.gnu.org/pub/gcc/infrastructure/isl-${V_ISL}.tar.bz2
