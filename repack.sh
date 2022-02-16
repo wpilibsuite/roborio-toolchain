@@ -47,10 +47,10 @@ for dir in libc6 libc6-dev linux-libc-headers-dev libgcc1 libgcc-dev libstdc\+\+
 			# don't need these
 			rm control.tar.gz debian-binary
 			pushd out
-				tar xf ../data.tar.gz
+				tar xf ../data.tar.*
 			popd
 			# clean up
-			rm data.tar.gz
+			rm data.tar.*
 			mv $file "$THIS_DIR/"
 		done
 	popd

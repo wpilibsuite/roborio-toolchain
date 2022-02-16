@@ -44,6 +44,7 @@ tarpkg:
 	mkdir -p frc$(V_YEAR)
 	mkdir -p frc$(V_YEAR)/roborio
 	cp -R tree-install/usr/local/* frc$(V_YEAR)/roborio/
+	rm -rf frc$(V_YEAR)/roborio/arm-frc$(V_YEAR)-linux-gnueabi/usr/src
 	tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC).tar.gz frc$(V_YEAR)
 
 clean:
