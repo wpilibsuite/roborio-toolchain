@@ -9,6 +9,7 @@ PUB_KEYS=(
     F7D5C9BF765C61E3 # mpc
     F3599FF828C67298 # gmp
     92EDB04BFF325CF3 # gdb
+    A83F33D0666E7520 # NI Linux
 )
 
 for KEY in "${PUB_KEYS[@]}"
@@ -27,14 +28,12 @@ signed sig https://ftp.gnu.org/gnu/mpfr/mpfr-${V_MPFR}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/mpc/mpc-${V_MPC}.tar.gz
 signed sig https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
+signed asc https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages
 
+# expat 2.2.0 is not signed, trust sourceforge https
 wget -nc -nv https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2
 mv expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2 \
     expat-${Vw_EXPAT}.tar.bz2
-
-# signed asc https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages
-# Cannot find public key to verify Packages.asc in directory, use https instead
-wget -nc -nv https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages || exit 1
 
 signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/gcc_${Va_GCC}_cortexa9-vfpv3.ipk
 signed-ni http://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/libgcc1_${Va_LIBGCC}_cortexa9-vfpv3.ipk
