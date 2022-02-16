@@ -28,7 +28,7 @@ signed sig https://ftp.gnu.org/gnu/mpfr/mpfr-${V_MPFR}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/mpc/mpc-${V_MPC}.tar.gz
 signed sig https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 signed sig https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
-signed asc https://download.ni.com/ni-linux-rt/feeds/2019/arm/cortexa9-vfpv3/Packages
+signed asc https://download.ni.com/ni-linux-rt/feeds/2021.0/arm/main/cortexa9-vfpv3/Packages
 
 # expat 2.2.0 is not signed, trust sourceforge https
 wget -nc -nv https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}-RENAMED-VULNERABLE-PLEASE-USE-2.3.0-INSTEAD.tar.bz2
